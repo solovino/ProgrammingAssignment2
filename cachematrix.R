@@ -13,11 +13,15 @@ makeCacheMatrix <- function(x = matrix()) {
 	# matrix, "setinv" which the assigns the object its 
 	# inverse, and "getinv" which retrieves the inverse
 	# of the matrix.
-        m <- NULL 
+        m <- NULL
+        set <- function(y) {
+                x <<- y
+        	m <<- NULL
+        }
         get <- function() x  
         setinv <- function(inv) m <<- inv  
         getinv <- function() m   
-        list(get = get, setinv = setinv,
+        list(set=set, get = get, setinv = setinv,
              getinv = getinv )	
 }
 
